@@ -5,7 +5,6 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"transactions/internal/config"
-	"transactions/internal/model"
 )
 
 func Dial(ctx context.Context, cfg config.PostgresConfig) (*gorm.DB, error) {
@@ -13,6 +12,5 @@ func Dial(ctx context.Context, cfg config.PostgresConfig) (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-	err = db.AutoMigrate(&model.Transaction{}, &model.Account{})
 	return db, nil
 }

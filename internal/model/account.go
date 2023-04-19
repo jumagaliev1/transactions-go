@@ -7,4 +7,5 @@ type Account struct {
 	UserID    uint      `json:"user_id"`
 	Balance   int       `json:"balance"`
 	CreatedAt time.Time `json:"created_at"`
+	DeletedAt time.Time `json:"deleted_at"`
 }

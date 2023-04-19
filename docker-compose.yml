@@ -6,25 +6,9 @@ services:
     command: ./app
     ports:
       - "50051:50051"
-    depends_on:
-      - db
     networks:
       - one_edu_backend
 
-  db:
-    restart: always
-    image: postgres:latest
-    volumes:
-      - .:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "postgres"
-      PGDATA: "/var/lib/postgresql/data/pgdata"
-    ports:
-      - "5437:5432"
-    networks:
-      - one_edu_backend
 networks:
   one_edu_backend:
     external: true
